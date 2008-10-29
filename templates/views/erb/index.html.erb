@@ -1,0 +1,14 @@
+<h1><%= plural_name.titleize %></h1>
+ 
+<table>
+  <tr>
+  <%- for attribute in attributes -%>
+    <th><%= attribute.column.human_name.titleize %></th>
+  <%- end -%>
+  </tr>
+  <%%= render :partial => "<%= singular_name %>", :collection => @<%= plural_name %> %>
+</table>
+ 
+<%- if action? :new -%>
+<p><%%= link_to "New <%= singular_name.titleize %>", new_<%= singular_name %>_path %></p>
+<%- end -%>
